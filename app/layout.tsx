@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "Olafenwa",
   description:
     "Software developer focused on robust systems and thoughtful interfaces.",
+     icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
