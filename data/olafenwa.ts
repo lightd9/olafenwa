@@ -1,6 +1,3 @@
-// ─────────────────────────────────────────────
-// Types
-// ─────────────────────────────────────────────
 
 export interface Project {
   title: string;
@@ -36,9 +33,6 @@ export interface PortfolioData {
   experience: Experience[];
 }
 
-// ─────────────────────────────────────────────
-// Content — edit this to make it yours
-// ─────────────────────────────────────────────
 
 export const portfolio: PortfolioData = {
   name: "Hassan Olafenwa",
