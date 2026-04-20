@@ -67,7 +67,7 @@ export const portfolio: PortfolioData = {
         "An intelligent automation system designed to populate a KoboToolbox survey form with realistic data for testing adnd validation purposes",
       tags: ["Python", "Selenium WebDriver"],
       year: "",
-      repo: "https://github.com",
+      repo: "https://github.com/lightd9/Kobotool-automation-script",
     },
     {
       title: "Authentichain API Gateway",
