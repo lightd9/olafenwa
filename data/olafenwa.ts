@@ -62,6 +62,14 @@ export const portfolio: PortfolioData = {
 
   projects: [
     {
+      title: "Form Automation System",
+      description:
+        "An intelligent automation system designed to populate a KoboToolbox survey form with realistic data for testing adnd validation purposes",
+      tags: ["Python", "Selenium WebDriver"],
+      year: "",
+      repo: "https://github.com",
+    },
+    {
       title: "Authentichain API Gateway",
       description:
         "A REST API that uses Ethereum smart contracts to create an immutable, verifiable chain of custody for physical products, with rate-limiting, circuit breaker patterns, and real-time obseravbility.",
@@ -75,7 +83,7 @@ export const portfolio: PortfolioData = {
         "An app to demonstrate the ability to apply machine learning models to predict the likelihood of customer churn.",
       tags: ["Python", "Machine Learning"],
       year: "",
-      repo: "https://github.com/lightd9/SmartScan_Full_Code",
+      repo: " https://github.com/lightd9/Customer-Churn-Prediction",
     },
     {
       title: "SmartScan APP",
@@ -83,7 +91,7 @@ export const portfolio: PortfolioData = {
         "Full-Blown Blockchain Authentication APP.",
       tags: ["JavaScript", "Solidity", "React", "Vite", "Node.JS", "Express", "PostgreSQL"],
       year: "",
-      repo: "https://github.com",
+      repo: "https://github.com/lightd9/SmartScan_Full_Code",
     },
     {
       title: "Ledger CLI",
@@ -93,6 +101,7 @@ export const portfolio: PortfolioData = {
       year: "",
       repo: "https://github.com",
     },
+    
   ],
 
   experience: [

@@ -11,7 +11,7 @@ export function SectionHeader({ title, className }: SectionHeaderProps) {
       <span
         className={cn(
           "font-mono text-[11px] uppercase tracking-widest",
-          "text-[--color-muted]",
+          "text-[var(--color-muted)]",
         )}
       >
         {title}
