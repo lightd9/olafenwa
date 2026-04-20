@@ -77,6 +77,14 @@ export const portfolio: PortfolioData = {
       year: "",
       repo: "https://github.com/lightd9/Authentichain",
     },
+        {
+      title: "SmartScan APP",
+      description:
+        "Full-Blown Blockchain Authentication APP.",
+      tags: ["JavaScript", "Solidity", "React", "Vite", "Node.JS", "Express", "PostgreSQL"],
+      year: "",
+      repo: "https://github.com/lightd9/SmartScan_Full_Code",
+    },
     {
       title: "Predicting Customer CHurn",
       description:
@@ -84,14 +92,6 @@ export const portfolio: PortfolioData = {
       tags: ["Python", "Machine Learning"],
       year: "",
       repo: " https://github.com/lightd9/Customer-Churn-Prediction",
-    },
-    {
-      title: "SmartScan APP",
-      description:
-        "Full-Blown Blockchain Authentication APP.",
-      tags: ["JavaScript", "Solidity", "React", "Vite", "Node.JS", "Express", "PostgreSQL"],
-      year: "",
-      repo: "https://github.com/lightd9/SmartScan_Full_Code",
     },
     {
       title: "Ledger CLI",
