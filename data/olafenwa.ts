@@ -64,7 +64,7 @@ export const portfolio: PortfolioData = {
     {
       title: "Form Automation System",
       description:
-        "An intelligent automation system designed to populate a KoboToolbox survey form with realistic data for testing adnd validation purposes",
+        "An intelligent automation system designed to populate a KoboToolbox survey form with realistic data for testing and validation purposes",
       tags: ["Python", "Selenium WebDriver"],
       year: "",
       repo: "https://github.com/lightd9/Kobotool-automation-script",
