@@ -63,6 +63,7 @@ export const portfolio: PortfolioData = {
     "TypeScript",
     "React",
     "Node.js",
+    "MySQL",
     "Python",
     "Go",
     "Rust",
@@ -91,7 +92,7 @@ export const portfolio: PortfolioData = {
       slug: "ivaccess",
       title: "IVACCESS",
       description:
-        "An event management platform that enables hosts to create events, send digital invitations, manage guests, and streamline event entry across devices. Built the marketing website to showcase the platform, its features, and subscription plans with a premium, responsive interface.",
+        "An event management platform that enables hosts to create events, send digital invitations, manage guests, and streamline event entry across devices.",
       tags: ["React", "Vite"],
       year: "2026",
       url: "https://www.theivaccess.com/",
@@ -183,10 +184,10 @@ export const portfolio: PortfolioData = {
       company: "Layer21",
       period: "March 2026 — Present",
       description:
-        "End-to-end web, mobile & SaaS applications — RESTful APIs, database design, payment integrations, and cloud deployment",
+        "End-to-end web, mobile & SaaS applications, RESTful APIs, database design, payment integrations, and cloud deployment",
     },
     {
-      role: "Software Engineer Intern",
+      role: "Software Engineer Intern(NYSC)",
       company: "NITDA Nigeria",
       period: "2025 — 2026",
       description: "Infrastructure & developer experience tooling",

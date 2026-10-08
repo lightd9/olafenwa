@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Tag, SectionHeader } from "@/components/ui";
 import type { Project } from "@/data/olafenwa";
@@ -25,19 +24,6 @@ export function Work({ projects }: WorkProps) {
                 aria-label={`${project.title} — read more`}
                 className="absolute inset-0"
               />
-
-              {project.images?.[0] && (
-                <div className="mb-5 overflow-hidden rounded-lg border border-[var(--color-line)] bg-[var(--color-card)]">
-                  <Image
-                    src={project.images[0].src}
-                    alt={`${project.title} screenshot`}
-                    width={project.images[0].width}
-                    height={project.images[0].height}
-                    className="h-auto w-full"
-                    loading="lazy"
-                  />
-                </div>
-              )}
 
               <div className="mb-2.5 flex items-start justify-between">
                 <h3 className="work-title text-[15px] font-medium tracking-tight">
