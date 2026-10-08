@@ -17,7 +17,7 @@ export function Work({ projects }: WorkProps) {
           .map((project) => (
             <div
               key={project.slug}
-              className="group relative border-t border-[--color-line] py-7"
+              className="group relative border-t border-[var(--color-line)] py-7"
             >
               <Link
                 href={`/work/${project.slug}`}

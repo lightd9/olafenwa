@@ -16,7 +16,7 @@ export function SectionHeader({ title, className }: SectionHeaderProps) {
       >
         {title}
       </span>
-      <div className="h-px flex-1 bg-[--color-line]" />
+      <div className="h-px flex-1 bg-[var(--color-line)]" />
     </div>
   );
 }

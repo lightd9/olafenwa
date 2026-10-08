@@ -41,10 +41,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (!project) notFound();
 
   const index = portfolio.projects.indexOf(project);
-  const prev =
-    portfolio.projects[
-      (index - 1 + portfolio.projects.length) % portfolio.projects.length
-    ] ?? project;
   const next =
     portfolio.projects[(index + 1) % portfolio.projects.length] ?? project;
 
@@ -144,31 +140,22 @@ export default async function CaseStudyPage({ params }: PageProps) {
             )}
 
             <Reveal className="mt-16">
-              <div className="grid grid-cols-2 gap-6 border-t border-[var(--color-line)] pt-7">
-                <Link
-                  href={`/work/${prev.slug}`}
-                  className="group flex flex-col items-start"
-                >
+              <Link
+                href={`/work/${next.slug}`}
+                className="group flex items-baseline justify-between border-t border-[var(--color-line)] py-7"
+              >
+                <div>
                   <span className="font-mono text-[11px] uppercase tracking-widest text-[var(--color-muted)]">
-                    ← Previous
+                    Next project
                   </span>
-                  <p className="mt-2 text-[15px] font-medium tracking-tight text-[var(--color-ink)] transition-colors duration-200 group-hover:text-[var(--color-accent)]">
-                    {prev.title}
-                  </p>
-                </Link>
-
-                <Link
-                  href={`/work/${next.slug}`}
-                  className="group flex flex-col items-end text-right"
-                >
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-[var(--color-muted)]">
-                    Next →
-                  </span>
-                  <p className="mt-2 text-[15px] font-medium tracking-tight text-[var(--color-ink)] transition-colors duration-200 group-hover:text-[var(--color-accent)]">
+                  <p className="mt-2 text-[17px] font-medium tracking-tight text-[var(--color-ink)] transition-colors duration-200 group-hover:text-[var(--color-accent)]">
                     {next.title}
                   </p>
-                </Link>
-              </div>
+                </div>
+                <span className="font-mono text-[14px] text-[var(--color-muted)] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-[var(--color-accent)]">
+                  →
+                </span>
+              </Link>
             </Reveal>
 
             <Footer name={portfolio.name} />

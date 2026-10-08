@@ -14,7 +14,7 @@ export function Experience({ experience }: ExperienceProps) {
         {experience.map((item) => (
           <div
             key={`${item.company}-${item.period}`}
-            className="grid grid-cols-[1fr_auto] items-start border-t border-[--color-line] py-5"
+            className="grid grid-cols-[1fr_auto] items-start border-t border-[var(--color-line)] py-5"
           >
             <div>
               <p className="mb-1 text-[15px] font-medium text-[var(--color-ink)]">

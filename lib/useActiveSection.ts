@@ -10,27 +10,30 @@ function isSectionId(value: string): value is SectionId {
   return (SECTIONS as readonly string[]).includes(value);
 }
 
-function computeActive(): SectionId | null {
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+function isNearTop(id: SectionId, threshold: number): boolean {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  return el.getBoundingClientRect().top <= threshold;
+}
 
-  // At the very end of the page the trailing sections can't reach the
-  // marker on tall viewports — the last visible section owns the bottom.
-  if (window.scrollY >= maxScroll - 8) {
-    let lastVisible: SectionId | null = null;
-    for (const id of SECTIONS) {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top < window.innerHeight) {
-        lastVisible = id;
-      }
-    }
-    if (lastVisible) return lastVisible;
+function computeActive(): SectionId | null {
+  const doc = document.documentElement;
+  const scrollable = doc.scrollHeight > window.innerHeight + 8;
+  const atBottom =
+    scrollable && window.scrollY + window.innerHeight >= doc.scrollHeight - 8;
+
+  // The trailing section owns the end of the page even when a tall
+  // viewport keeps its top below the marker line.
+  if (atBottom) {
+    const last = SECTIONS[SECTIONS.length - 1];
+    if (last && isNearTop(last, window.innerHeight)) return last;
   }
 
-  const marker = window.scrollY + Math.round(window.innerHeight * 0.45);
+  const markerY = window.innerHeight * 0.45;
   let current: SectionId | null = null;
   for (const id of SECTIONS) {
     const el = document.getElementById(id);
-    if (el && el.offsetTop <= marker) current = id;
+    if (el && el.getBoundingClientRect().top <= markerY) current = id;
   }
   return current;
 }
@@ -46,13 +49,25 @@ export function useActiveSection(): ActiveSectionState {
 
   useEffect(() => {
     let override: SectionId | null = null;
+
+    // Honor a hash only if the page actually landed near that section.
+    // History back/forward can restore a stale hash from a previous route.
     const initialHash = window.location.hash.slice(1);
-    if (isSectionId(initialHash)) override = initialHash;
+    if (
+      isSectionId(initialHash) &&
+      isNearTop(initialHash, window.innerHeight * 0.6)
+    ) {
+      override = initialHash;
+    }
 
     const apply = () => setActive(override ?? computeActive());
 
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
+      apply();
+    };
+
+    const onResize = () => {
       apply();
     };
 
@@ -69,6 +84,7 @@ export function useActiveSection(): ActiveSectionState {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     window.addEventListener("hashchange", onHashChange);
     window.addEventListener("wheel", onUserInput, { passive: true });
     window.addEventListener("touchmove", onUserInput, { passive: true });
@@ -79,6 +95,7 @@ export function useActiveSection(): ActiveSectionState {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("hashchange", onHashChange);
       window.removeEventListener("wheel", onUserInput);
       window.removeEventListener("touchmove", onUserInput);

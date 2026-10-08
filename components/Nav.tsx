@@ -27,7 +27,7 @@ export function Nav({ name, hashPrefix = "" }: NavProps) {
         className={cn(
           "fixed left-0 right-0 top-0 z-50 transition-all duration-300 lg:hidden",
           scrolled || open
-            ? "border-b border-[--color-line] bg-[rgba(247,246,243,0.9)] backdrop-blur-md"
+            ? "border-b border-[var(--color-line)] bg-[rgba(247,246,243,0.9)] backdrop-blur-md"
             : "border-b border-transparent bg-transparent",
         )}
       >

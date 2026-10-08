@@ -58,7 +58,7 @@ export function Hero({ data, workHref }: HeroProps) {
                 ? `${link.label} (opens in new tab)`
                 : link.label
             }
-            className="border-b border-[--color-line] pb-0.5 font-mono text-[13px] text-[var(--color-muted)] transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+            className="border-b border-[var(--color-line)] pb-0.5 font-mono text-[13px] text-[var(--color-muted)] transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
           >
             {link.label}
           </a>
