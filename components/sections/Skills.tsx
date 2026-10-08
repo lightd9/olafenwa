@@ -6,7 +6,7 @@ interface SkillsProps {
 
 export function Skills({ skills }: SkillsProps) {
   return (
-    <section className="mb-20">
+    <section id="skills" className="mb-20 scroll-mt-20">
       <SectionHeader title="Stack" />
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (

@@ -2,16 +2,22 @@ import { Badge } from "@/components/ui";
 import type { PortfolioData } from "@/data/olafenwa";
 
 interface HeroProps {
-  data: Pick<PortfolioData, "name" | "role" | "bio" | "availableForWork" | "social">;
+  data: Pick<
+    PortfolioData,
+    "name" | "role" | "bio" | "availableForWork" | "social"
+  >;
+  workHref: string;
 }
 
-export function Hero({ data }: HeroProps) {
+export function Hero({ data, workHref }: HeroProps) {
   return (
-    <section className="pb-24 pt-36">
+    <section id="top" className="pb-24 pt-36">
       {data.availableForWork && (
         <Badge className="mb-7">
           <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-          <span className="font-mono text-[12px] text-[var(--color-accent)]">available for work</span>
+          <span className="font-mono text-[12px] text-[var(--color-accent)]">
+            available for work
+          </span>
         </Badge>
       )}
 
@@ -25,9 +31,35 @@ export function Hero({ data }: HeroProps) {
         {data.bio}
       </p>
 
+      <div className="mt-9 flex flex-wrap items-center gap-3">
+        <a
+          href={workHref}
+          className="rounded-full bg-[var(--color-accent)] px-5 py-2.5 font-mono text-[13px] text-white transition-opacity duration-200 hover:opacity-90"
+        >
+          View Work
+        </a>
+        <a
+          href="#contact"
+          className="rounded-full border border-[var(--color-line)] bg-[var(--color-card)] px-5 py-2.5 font-mono text-[13px] text-[var(--color-ink)] transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+        >
+          Get in Touch
+        </a>
+      </div>
+
       <div className="mt-10 flex flex-wrap gap-5">
         {data.social.map((link) => (
-          <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className="border-b border-[--color-line] pb-0.5 font-mono text-[13px] text-[var(--color-muted)] transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]">
+          <a
+            key={link.label}
+            href={link.url}
+            target={link.url.startsWith("http") ? "_blank" : undefined}
+            rel="noopener noreferrer"
+            aria-label={
+              link.url.startsWith("http")
+                ? `${link.label} (opens in new tab)`
+                : link.label
+            }
+            className="border-b border-[--color-line] pb-0.5 font-mono text-[13px] text-[var(--color-muted)] transition-colors duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+          >
             {link.label}
           </a>
         ))}

@@ -7,12 +7,15 @@ interface ExperienceProps {
 
 export function Experience({ experience }: ExperienceProps) {
   return (
-    <section id="experience" className="mb-20">
+    <section id="experience" className="mb-20 scroll-mt-20">
       <SectionHeader title="Experience" />
 
       <div>
         {experience.map((item) => (
-          <div key={`${item.company}-${item.period}`} className="grid grid-cols-[1fr_auto] items-start border-t border-[--color-line] py-5">
+          <div
+            key={`${item.company}-${item.period}`}
+            className="grid grid-cols-[1fr_auto] items-start border-t border-[--color-line] py-5"
+          >
             <div>
               <p className="mb-1 text-[15px] font-medium text-[var(--color-ink)]">
                 {item.role}
